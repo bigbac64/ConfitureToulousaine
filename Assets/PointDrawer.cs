@@ -48,27 +48,49 @@ public class PointDrawer : MonoBehaviour
             Debug.LogError("Missing references in PointDrawer script.");
             return;
         }
+        Clear();
 
         float panelWidth = gameObject.GetComponent<RectTransform>().rect.width;
         float panelHeight = gameObject.GetComponent<RectTransform>().rect.height;
 
-        int numPoints = Mathf.FloorToInt(panelWidth / spacing);
+        // trouver max Y
+        float _y = 1f; float _x = 0;
+        for (; _y > 0; _x += 0.5f)
+        {
+            _y = functions.RunDerived(_x);
+        }
+        float maxY = functions.RunAway(_x);
 
-        for (int i = 0; i < numPoints; i++)
+        //trouver max X
+        _y = 1;
+        for (_x = 0; _y > 0; _x += 0.5f)
+        {
+            _y = functions.RunAway(_x);
+        }
+        float maxX = _x;
+
+
+        int numPoints = 50;
+        float startX = functions.startX;
+
+        for (float i = startX; i < numPoints + startX; i+=0.2f)
         {
             float x = i * spacing;
             float y = functions.RunAway(x);
+            Debug.Log("x " + x + " y " + y);
             if (y < 0f)
             {
                 return;
             }
+            Debug.Log("i");
 
             // Convertir les coordonnées en position locale du panneau
-            Vector2 localPosition = new Vector2(x, y);
-            Vector2 anchoredPosition = new Vector2(localPosition.x - panelWidth / 2, localPosition.y - panelHeight / 2);
+            Vector2 localPosition = new Vector2((x - startX) * panelWidth / maxX, y * panelHeight/ 2 / maxY);
+            Vector2 anchoredPosition = new Vector2(localPosition.x - panelWidth / 2, localPosition.y - panelHeight );
 
             // Créer un point
             GameObject point = Instantiate(pointPrefab, gameObject.GetComponent<RectTransform>());
+            points.Add(point);
             RectTransform pointRect = point.GetComponent<RectTransform>();
             pointRect.sizeDelta = new Vector2(pointSize, pointSize);
             pointRect.anchoredPosition = anchoredPosition;

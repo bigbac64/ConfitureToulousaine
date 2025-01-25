@@ -31,4 +31,16 @@ public class Functions : MonoBehaviour
         return y;
 
     }
+
+    public float RunDerived(float x)
+    {
+        float y = startY;
+        for (int i = 0; i < stack.Count; i++)
+        {
+            y += stack[i].derived(x);
+        }
+
+        return y;
+
+    }
 }
