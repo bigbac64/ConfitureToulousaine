@@ -30,6 +30,14 @@ public class MoveSet : MonoBehaviour
 
         func.AddSatck(new Parabolic(heightCourbe, forceCourbe));
         func.AddSatck(new Wave(frequencyInstability, forceInstability));
+        func.AddSatck(new Jump(10, 4, 5));
+        func.AddSatck(new Spike(15, 3, 8));
+        func.AddSatck(new Jump(34, -5, 20));
+    }
+
+    public void AddFunc(MathFunction func)
+    {
+        this.func.AddSatck(func);
     }
 
     // Update is called once per frame
@@ -80,6 +88,9 @@ public class MoveSet : MonoBehaviour
             func.ResetStack();
             func.AddSatck(new Parabolic(heightCourbe, forceCourbe));
             func.AddSatck(new Wave(frequencyInstability, forceInstability));
+            func.AddSatck(new Jump(10, 4, 5));
+            func.AddSatck(new Spike(15, 3, 8));
+            func.AddSatck(new Jump(34, -5, 20));
         }
 
         Gizmos.color = Color.red;
