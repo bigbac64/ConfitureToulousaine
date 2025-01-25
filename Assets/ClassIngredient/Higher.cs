@@ -1,7 +1,8 @@
 using UnityEngine;
 
-public class Ingrediant : MonoBehaviour
+public class Higher : MonoBehaviour, Ingrediant
 {
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -13,7 +14,6 @@ public class Ingrediant : MonoBehaviour
     {
         
     }
-
     public MathFunction Type()
     {
         return new Parabolic();
@@ -21,6 +21,7 @@ public class Ingrediant : MonoBehaviour
 
     public void Applyer(MathFunction e)
     {
-        ((Parabolic)e).accumulate(0.2f, 0.08f);
-    } 
+        ((Parabolic)e).accumulate(1.2f, 0.08f);
+    }
+
 }

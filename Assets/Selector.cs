@@ -6,6 +6,7 @@ public class Selector : MonoBehaviour
 
     public GameObject higher;
     public GameObject longeur;
+    public GameObject waving;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,5 +23,15 @@ public class Selector : MonoBehaviour
     public void SelectHigher()
     {
         gen.prefabToSpawn = higher;
+    }
+
+    public void SelectLongeur()
+    {
+        gen.prefabToSpawn = longeur;
+    }
+
+    public void SelectWaving()
+    {
+        gen.prefabToSpawn = waving;
     }
 }

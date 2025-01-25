@@ -28,11 +28,6 @@ public class MoveSet : MonoBehaviour
         func.startX = transform.position.x;
         func.startY = transform.position.y;
 
-        func.AddSatck(new Parabolic(heightCourbe, forceCourbe));
-        func.AddSatck(new Wave(frequencyInstability, forceInstability));
-        func.AddSatck(new Jump(10, 4, 5));
-        func.AddSatck(new Spike(15, 3, 8));
-        func.AddSatck(new Jump(34, -5, 20));
     }
 
     public void AddFunc(MathFunction func)
