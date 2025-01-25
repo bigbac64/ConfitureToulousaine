@@ -27,7 +27,6 @@ public class MoveSet : MonoBehaviour
         func = manager.GetComponent<Functions>();
         func.startX = transform.position.x;
         func.startY = transform.position.y;
-
     }
 
     public void AddFunc(MathFunction func)

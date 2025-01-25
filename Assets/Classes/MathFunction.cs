@@ -6,6 +6,7 @@ public abstract class MathFunction
     public float originX;
 
     public abstract float execute(float x);
+    public abstract float derived(float x);
 }
 
 public class Parabolic : MathFunction
@@ -15,7 +16,6 @@ public class Parabolic : MathFunction
 
     public Parabolic(float height= 0f, float force = 0f)
     {
-        
         accumulate(height, force);
     }
 
@@ -28,6 +28,11 @@ public class Parabolic : MathFunction
     public override float execute(float x)
     {
         return -1 / force * Mathf.Pow(x - Mathf.Sqrt(height * force) - originX, 2) + height;
+    }
+
+    public override float derived(float x)
+    {
+        return -2f / force * (x - Mathf.Sqrt(height * force) - originX);
     }
 }
 
@@ -50,6 +55,11 @@ public class Wave : MathFunction
     public override float execute(float x)
     {
         return frequency * Mathf.Sin(strength * x );
+    }
+
+    public override float derived(float x)
+    {
+        return frequency * strength * Mathf.Cos(strength * x);
     }
 }
 
@@ -80,6 +90,14 @@ public class Spike : MathFunction
     {
         return height * Mathf.Exp(-Mathf.Pow(x - pos + 1 + smoothness / 10, 2) / (2 * Mathf.Pow(smoothness, 2)));
     }
+
+    public override float derived(float x)
+    {
+        float exponent = -Mathf.Pow(x - pos + 1 + smoothness / 10, 2) / (2 * Mathf.Pow(smoothness, 2));
+        float expValue = Mathf.Exp(exponent);
+        float derivative = -(height / Mathf.Pow(smoothness, 2)) * (x - pos + 1 + smoothness / 10) * expValue;
+        return derivative;
+    }
 }
 
 public class Jump : MathFunction
@@ -107,6 +125,15 @@ public class Jump : MathFunction
     public override float execute(float x)
     {
         return strength / (1 + Mathf.Exp(-smoothness * (x - pos + 1 + smoothness / 10)));
+    }
+
+    public override float derived(float x)
+    {
+        float exponent = -smoothness * (x - pos + 1 + smoothness / 10);
+        float expValue = Mathf.Exp(exponent);
+        float denominator = 1 + expValue;
+        float numerator = strength * smoothness * expValue;
+        return numerator / (denominator * denominator);
     }
 }
 
