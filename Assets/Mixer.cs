@@ -4,6 +4,7 @@ using UnityEngine;
 public class Mixer : MonoBehaviour
 {
     public GameObject jumper;
+    public ParticleSystem particleSystem;
 
     public Dictionary<string, MathFunction> stacker;
 
@@ -33,7 +34,12 @@ public class Mixer : MonoBehaviour
                 stacker.Add(nameType, ing.Type());
                 jumper.GetComponent<MoveSet>().AddFunc(stacker[nameType]);
             }
-            
+
+            if (particleSystem != null)
+            {
+                particleSystem.Play();
+            }
+
             ing.Applyer(stacker[nameType]);
 
             Destroy(other.gameObject);
