@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
@@ -10,7 +11,15 @@ public class Inventory : MonoBehaviour
     public GameObject slime;
     public GameObject tesson;
 
+    public GameObject UICanette;
+    public GameObject UIPilier;
+    public GameObject UIFleur;
+    public GameObject UIMousse;
+    public GameObject UISlime;
+    public GameObject UITesson;
+
     public Dictionary<string, int> inventory;
+    public Dictionary<string, GameObject> ui;
     private Dictionary<string, GameObject> prefab;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -24,6 +33,16 @@ public class Inventory : MonoBehaviour
             {"mousse", mousse },
             {"slime", slime },
             {"tesson", tesson },
+        };
+
+        ui = new Dictionary<string, GameObject>
+        {
+            {"canette", UICanette },
+            {"pilier", UIPilier },
+            {"fleur", UIFleur },
+            {"mousse", UIMousse },
+            {"slime", UISlime },
+            {"tesson", UITesson },
         };
 
         inventory = new Dictionary<string, int>{
@@ -45,5 +64,6 @@ public class Inventory : MonoBehaviour
     public void SetObject(string obj, int count)
     {
         inventory[obj] += count;
+        ui[obj].transform.Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text = obj + " - " + inventory[obj];
     }
 }

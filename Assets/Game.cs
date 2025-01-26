@@ -3,6 +3,7 @@ using UnityEngine;
 public class Game : MonoBehaviour
 {
     public MoveSet player;
+    public Mixer mixer;
     public Transform camera;
     public Camera view;
     public Follower follow;
@@ -20,6 +21,7 @@ public class Game : MonoBehaviour
 
     void centerPos()
     {
+        follow.isFollow = false;
         camera.gameObject.transform.rotation = Quaternion.identity;
         camera.gameObject.transform.position = new Vector3(0, 5, -18);
     }
@@ -74,5 +76,15 @@ public class Game : MonoBehaviour
         float maxX = _x;
 
         return (maxX, maxY);
+    }
+
+    public void ResetGame()
+    {
+        GetComponent<UIGestion>().showMixer();
+        GetComponent<UIGestion>().closeResume();
+        player.ResetPlay();
+        functions.ResetStack();
+        mixer.ResetPlay();
+        centerPos();
     }
 }

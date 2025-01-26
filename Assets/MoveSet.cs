@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
@@ -6,6 +7,8 @@ public class MoveSet : MonoBehaviour
 {
     public GameObject manager;
     private Functions func;
+    private Inventory inventory;
+    private UIGestion ui;
     private LineRenderer lineRenderer;
 
     public float time = 5f;
@@ -35,6 +38,8 @@ public class MoveSet : MonoBehaviour
         lineRenderer.endColor = Color.red;
 
         func = manager.GetComponent<Functions>();
+        inventory = manager.GetComponent<Inventory>();
+        ui = manager.GetComponent<UIGestion>();
         func.startX = transform.position.x;
         func.startY = transform.position.y;
 
@@ -43,6 +48,8 @@ public class MoveSet : MonoBehaviour
 
     public void AddFunc(MathFunction func)
     {
+        if (this.func == null)
+            this.func = manager.GetComponent<Functions>();
         this.func.AddSatck(func);
     }
 
@@ -62,7 +69,6 @@ public class MoveSet : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && isMoving)
             Jump();
-
 
 
     }
@@ -88,7 +94,29 @@ public class MoveSet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        IRecolte recept = collision.gameObject.GetComponent<IRecolte>();
+        if (recept != null)
+        {
+            Dictionary<string, int> getr = recept.recolte(transform.position.x);
+            ui.closeMixer();
+            ui.showResume();
+            Debug.Log(getr.Keys.Count);
+            int i = 1;
+            foreach (string key in getr.Keys)
+            {
+                ui.writeResume(i, key, getr[key].ToString());
+                inventory.SetObject(key, getr[key]);
+                i++;
+            }
+        }
         isMoving = false;
+    }
+
+    public void ResetPlay()
+    {
+        transform.position = new Vector3(func.startX, func.startY, 0);
+        isMoving = false;
+        forward = 0f;
     }
 
     private void DrawLine()

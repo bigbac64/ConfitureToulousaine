@@ -11,15 +11,22 @@ public class Mixer : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        stacker = new Dictionary<string, MathFunction>();
-        stacker.Add(typeof(Parabolic).Name, new Parabolic(1, 0.5f));
-        jumper.GetComponent<MoveSet>().AddFunc(stacker[typeof(Parabolic).Name]);
+        ResetPlay();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void ResetPlay()
+    {
+        stacker = new Dictionary<string, MathFunction>
+        {
+            { typeof(Parabolic).Name, new Parabolic(1, 0.5f) }
+        };
+        jumper.GetComponent<MoveSet>().AddFunc(stacker[typeof(Parabolic).Name]);
     }
 
     private void OnTriggerEnter(Collider other)
