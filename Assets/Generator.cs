@@ -3,18 +3,18 @@ using UnityEngine;
 public class Generator : MonoBehaviour
 {
     public GameObject prefabToSpawn;
-    Camera mainCamera;
+    public bool canSelectable = true;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        mainCamera = GetComponent<Camera>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && prefabToSpawn != null)
+        if (Input.GetMouseButtonDown(0) && prefabToSpawn != null && canSelectable)
         {
             SpawnObjectAtMousePosition();
         }

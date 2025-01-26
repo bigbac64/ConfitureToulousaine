@@ -21,7 +21,7 @@ public class MoveSet : MonoBehaviour
     public float forceJump = 0f;
     public float smoothJump = 0f;
 
-    private bool isMoving = false;
+    public bool isMoving = false;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -63,8 +63,6 @@ public class MoveSet : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isMoving)
             Jump();
 
-        if(Input.GetKeyUp(KeyCode.P))
-            isMoving = true;
 
 
     }
@@ -76,7 +74,7 @@ public class MoveSet : MonoBehaviour
 
             DrawLine(); 
             // Attend une seconde avant de répéter
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.2f);
         }
     }
 
@@ -98,6 +96,7 @@ public class MoveSet : MonoBehaviour
         lineRenderer.positionCount = 0;
 
         float y = 0.1f;
+        
 
         for (float t = gameObject.transform.position.x; y > 0; t += 0.1f)
         {
@@ -108,6 +107,8 @@ public class MoveSet : MonoBehaviour
 
             lineRenderer.positionCount++;
             lineRenderer.SetPosition(lineRenderer.positionCount - 1, currentPoint);
+
+
         }
     }
 }

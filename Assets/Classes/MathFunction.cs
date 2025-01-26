@@ -100,6 +100,38 @@ public class Spike : MathFunction
     }
 }
 
+public class Arc : MathFunction
+{
+    float pos = 0f;
+    float rayon = 0f;
+
+    public Arc(float pos, float rayon)
+    {
+        at(pos);
+        accumulate(rayon);
+    }
+
+    public void accumulate(float rayon = 0f)
+    {
+        this.rayon += rayon;
+    }
+
+    public void at(float pos)
+    {
+        this.pos = pos + 1;
+    }
+
+    public override float execute(float x)
+    {
+        return -Mathf.Sqrt(rayon * rayon - (x - pos) * (x - pos)) + rayon;
+    }
+
+    public override float derived(float x)
+    {
+        return 1f;
+    }
+}
+
 public class Jump : MathFunction
 {
     float pos = 0f;
