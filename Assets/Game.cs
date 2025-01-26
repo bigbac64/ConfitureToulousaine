@@ -23,18 +23,21 @@ public class Game : MonoBehaviour
     {
         follow.isFollow = false;
         camera.gameObject.transform.rotation = Quaternion.identity;
-        camera.gameObject.transform.position = new Vector3(0, 5, -18);
+        camera.gameObject.transform.position = new Vector3(0, 9, -18);
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if (Input.GetKeyUp(KeyCode.P))
-        {
-            player.isMoving = true;
-            follow.isFollow = true;
-        }
+    }
+
+    public void StartGame()
+    {
+        player.isMoving = true;
+        follow.isFollow = true;
+        gen.canSelectable = false;
+        GetComponent<UIGestion>().closeMixer();
     }
 
     public void ModeView()
@@ -82,6 +85,7 @@ public class Game : MonoBehaviour
     {
         GetComponent<UIGestion>().showMixer();
         GetComponent<UIGestion>().closeResume();
+        gen.canSelectable = true;
         player.ResetPlay();
         functions.ResetStack();
         mixer.ResetPlay();
