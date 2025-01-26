@@ -104,7 +104,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 5781754238025535981}
   - component: {fileID: 6045436400540042736}
   - component: {fileID: 7015088732848578506}
+  - component: {fileID: -3074089451337066894}
   m_Layer: 0
   m_Name: Ingredient_mousse
   m_TagString: Ingrediant
@@ -192,6 +193,20 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-3074089451337066894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422183835102598368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a86d60eabaef3724187d4b584dd03072, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frequency: 0.19
+  force: 0.03
 --- !u!1001 &8824663127567606202
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -4,7 +4,7 @@ using UnityEngine;
 public class PillarRecolte : MonoBehaviour, IRecolte
 {
     public float scopePilier = 0.3f;
-    public float scopeMousse = 0.5f;
+    public float scopeMousse = 0.2f;
 
     public float rangeMousse = 50f;
     public float diffPilier = 0.6f;
@@ -17,7 +17,7 @@ public class PillarRecolte : MonoBehaviour, IRecolte
         float found = x * diffPilier;
         Dictionary<string, int> dict = new Dictionary<string, int>
         {
-            { "canette", Random.Range(1 + Mathf.FloorToInt(found * (1 - scopePilier)), 1 + Mathf.FloorToInt(found * (1 + scopePilier))) },
+            { "pilier", Random.Range(1 + Mathf.FloorToInt(found * (1 - scopePilier)), 1 + Mathf.FloorToInt(found * (1 + scopePilier))) },
         };
 
         found = x * diffMousse;

@@ -5,7 +5,7 @@ public class Follower : MonoBehaviour
 
     public GameObject followed;
     public bool isFollow = false;
-    public float high = 5f;
+    public float high = 1f;
     public float botView = -8.75f;
 
     public bool isSlide = false;
@@ -37,7 +37,7 @@ public class Follower : MonoBehaviour
             {
                 moveHorizontal = 0;
             }
-            if (transform.position.x >= maxWidth && moveHorizontal > 0)
+            if (transform.position.x >= 140f && moveHorizontal > 0)
             {
                 moveHorizontal = 0;
             }
@@ -47,7 +47,7 @@ public class Follower : MonoBehaviour
             {
                 moveVertical = 0;
             }
-            if ( moveVertical > 0 && transform.position.y >= maxHeight)
+            if ( moveVertical > 0 && transform.position.y >= 60f)
             {
                 moveVertical = 0;
             }

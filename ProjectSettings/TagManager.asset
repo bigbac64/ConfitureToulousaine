@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Ingrediant
+  - droppable
   layers:
   - Default
   - TransparentFX

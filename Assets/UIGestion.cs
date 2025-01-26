@@ -6,6 +6,7 @@ public class UIGestion : MonoBehaviour
 {
     public GameObject resume;
     public GameObject mixerPanel;
+    public GameObject runPanel;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,6 +18,16 @@ public class UIGestion : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void showRun()
+    {
+        runPanel.SetActive(true);
+    }
+
+    public void closeRun()
+    {
+        runPanel.SetActive(false);
     }
 
     public void showMixer()

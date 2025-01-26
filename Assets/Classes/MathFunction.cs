@@ -13,6 +13,7 @@ public class Parabolic : MathFunction
 {
     public float height = 0f;
     float force = 0f;
+    float multiplier = 1f;
 
     public Parabolic(float height= 0f, float force = 0f)
     {
@@ -21,8 +22,9 @@ public class Parabolic : MathFunction
 
     public void accumulate(float height=0f, float force = 0f)
     {
-        this.height += height;
-        this.force += force;
+        this.height += height * 3/multiplier;
+        this.force += force * multiplier;
+        multiplier += 0.6f;
     }
 
     public override float execute(float x)
@@ -78,6 +80,11 @@ public class Spike : MathFunction
     public void at(float pos)
     {
         this.pos = pos + 1 + smoothness;
+    }
+
+    public void accumulePos(float pos)
+    {
+        this.pos += pos;
     }
 
     public void accumulate(float height=0f, float smoothness=0f)

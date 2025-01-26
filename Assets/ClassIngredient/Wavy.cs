@@ -1,12 +1,10 @@
 using UnityEngine;
 
-public class HugeJumpy : MonoBehaviour, Ingrediant
+public class Wavy : MonoBehaviour, Ingrediant
 {
+    public float frequency = 10f;
     public float force = 5f;
-    [Range(1.2f, 0.1f)]
-    public float smoothness = 0.2f;
 
-    public float posStep = 3f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,12 +19,12 @@ public class HugeJumpy : MonoBehaviour, Ingrediant
     }
     public MathFunction Type()
     {
-        return new Jump(2f, force, smoothness);
+        return new Wave(0.1f, 2f);
     }
 
     public void Applyer(MathFunction e)
     {
-        ((Jump)e).accumulePos(posStep);
+        ((Wave)e).accumulate(frequency, force);
     }
 
 }
