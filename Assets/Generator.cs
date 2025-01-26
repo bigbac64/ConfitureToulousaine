@@ -3,6 +3,8 @@ using UnityEngine;
 public class Generator : MonoBehaviour
 {
     public GameObject prefabToSpawn;
+    public string name;
+    public Inventory inventory;
     public bool canSelectable = true;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -16,7 +18,10 @@ public class Generator : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && prefabToSpawn != null && canSelectable)
         {
-            SpawnObjectAtMousePosition();
+            if(inventory.inventory[name] > 0)
+            {
+                SpawnObjectAtMousePosition();
+            }
         }
     }
 
@@ -27,6 +32,7 @@ public class Generator : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
+            inventory.SetObject(name, -1);
             Vector3 spawnPosition = hit.point;
             spawnPosition.z = 0; // Fixe la coordonnée Z à 0
             Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);

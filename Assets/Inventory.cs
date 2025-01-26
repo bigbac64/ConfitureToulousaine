@@ -1,9 +1,13 @@
+using NUnit.Framework.Internal;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Inventory : MonoBehaviour
 {
+    private Generator gen;
+
     public GameObject canette;
     public GameObject pilier;
     public GameObject fleur;
@@ -25,6 +29,8 @@ public class Inventory : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        gen = GetComponent<Game>().gen;
+
         prefab = new Dictionary<string, GameObject>
         {
             {"canette", canette },
@@ -63,7 +69,43 @@ public class Inventory : MonoBehaviour
 
     public void SetObject(string obj, int count)
     {
+        if (inventory[obj] + count < 0)
+        {
+            return;
+        }
+        Debug.Log("after " + inventory[obj]);
         inventory[obj] += count;
+        Debug.Log("before " + inventory[obj]);
         ui[obj].transform.Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text = obj + " - " + inventory[obj];
+    }
+
+    public void SelectHigher()
+    {
+        gen.prefabToSpawn = pilier;
+        gen.name = "pilier";
+    }
+
+    public void SelectLongeur()
+    {
+        gen.prefabToSpawn = canette;
+        gen.name = "canette";
+    }
+
+    public void SelectHugeJump()
+    {
+        gen.prefabToSpawn = fleur;
+        gen.name = "fleur";
+    }
+
+    public void SelectHugeAntiJump()
+    {
+        gen.prefabToSpawn = mousse;
+        gen.name = "mousse";
+    }
+
+    public void SelectReJump()
+    {
+        gen.prefabToSpawn = slime;
+        gen.name = "slime";
     }
 }

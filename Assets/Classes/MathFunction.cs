@@ -149,6 +149,11 @@ public class Jump : MathFunction
         this.pos = pos + 1 + smoothness;
     }
 
+    public void accumulePos(float pos)
+    {
+        this.pos += pos ;
+    }
+
     public void accumulate(float strength = 0f, float smoothness = 0f)
     {
         this.strength += strength;

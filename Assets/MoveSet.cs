@@ -100,11 +100,11 @@ public class MoveSet : MonoBehaviour
             Dictionary<string, int> getr = recept.recolte(transform.position.x);
             ui.closeMixer();
             ui.showResume();
-            Debug.Log(getr.Keys.Count);
             int i = 1;
             foreach (string key in getr.Keys)
             {
                 ui.writeResume(i, key, getr[key].ToString());
+                Debug.Log("recolted " + getr[key]);
                 inventory.SetObject(key, getr[key]);
                 i++;
             }
