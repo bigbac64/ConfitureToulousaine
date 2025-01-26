@@ -11,6 +11,9 @@ public class MoveSet : MonoBehaviour
     private UIGestion ui;
     private LineRenderer lineRenderer;
 
+    public ParticleSystem splortch;
+    public ParticleSystem splortch2;
+
     public float time = 5f;
     public float speed = 0.05f;
     private float forward = 0f;
@@ -98,6 +101,8 @@ public class MoveSet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        splortch.Play();
+        splortch2.Play();
         IRecolte recept = collision.gameObject.GetComponent<IRecolte>();
         if (recept != null)
         {
@@ -114,6 +119,7 @@ public class MoveSet : MonoBehaviour
                 i++;
             }
         }
+
         isMoving = false;
     }
 

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ingrediant
   - droppable
+  - effect
   layers:
   - Default
   - TransparentFX
