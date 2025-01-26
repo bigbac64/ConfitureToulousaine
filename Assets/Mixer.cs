@@ -24,7 +24,7 @@ public class Mixer : MonoBehaviour
     {
         stacker = new Dictionary<string, MathFunction>
         {
-            { typeof(Parabolic).Name, new Parabolic(1, 0.5f) }
+            { typeof(Parabolic).Name, new Parabolic(2f, 0.5f) }
         };
         jumper.GetComponent<MoveSet>().AddFunc(stacker[typeof(Parabolic).Name]);
     }
