@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="Workspace" id="{3922d434-a3ed-454e-a2e4-6679d3a05672}">
+		<property name="builtBanksOutputDirectory">
+			<value>../../../../../../Projet jeu unity/Global Game Jam 2025/ConfitureToulousaine/Assets/SD/projet FMOD/Builder</value>
+		</property>
+		<relationship name="masterEventFolder">
+			<destination>{40bc9dfa-fd53-4a41-a888-4366711852d9}</destination>
+		</relationship>
+		<relationship name="masterTagFolder">
+			<destination>{49e73f70-af03-49ec-95c1-7c35691e1518}</destination>
+		</relationship>
+		<relationship name="masterEffectPresetFolder">
+			<destination>{3e4b9b3f-bc31-4b10-9775-749cb84b3bfc}</destination>
+		</relationship>
+		<relationship name="masterParameterPresetFolder">
+			<destination>{7b52e2e5-e1b9-4e78-af61-6c1c4338b8fa}</destination>
+		</relationship>
+		<relationship name="masterBankFolder">
+			<destination>{c0fde5a2-a8a4-42f1-a7ab-af05d2d10bab}</destination>
+		</relationship>
+		<relationship name="masterSandboxFolder">
+			<destination>{ae923235-75ff-45a7-9051-5b0128193b76}</destination>
+		</relationship>
+		<relationship name="masterAssetFolder">
+			<destination>{8e26e6e1-8abf-4ddf-818a-aed810b6ae8b}</destination>
+		</relationship>
+		<relationship name="mixer">
+			<destination>{8a238d70-7712-4124-b7aa-58b437bd019e}</destination>
+		</relationship>
+		<relationship name="profilerSessionFolder">
+			<destination>{686cc807-8272-40f1-a410-1722862aa1ce}</destination>
+		</relationship>
+		<relationship name="platforms">
+			<destination>{d7383765-924f-48d1-a743-1d45a3996970}</destination>
+		</relationship>
+	</object>
+</objects>
