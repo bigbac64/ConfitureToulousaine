@@ -21,6 +21,7 @@ public class Inventory : MonoBehaviour
     public GameObject UIMousse;
     public GameObject UISlime;
     public GameObject UITesson;
+    public GameObject UIJump;
 
     public Dictionary<string, int> inventory;
     public Dictionary<string, GameObject> ui;
@@ -49,15 +50,17 @@ public class Inventory : MonoBehaviour
             {"mousse", UIMousse },
             {"slime", UISlime },
             {"tesson", UITesson },
+            {"jump", UIJump },
         };
 
         inventory = new Dictionary<string, int>{
-            {"canette", 0 },
-            {"pilier", 0 },
-            {"fleur", 0 },
-            {"mousse", 0 },
-            {"slime", 0 },
+            {"canette", 20 },
+            {"pilier", 20 },
+            {"fleur", 20 },
+            {"mousse", 20 },
+            {"slime", 10 },
             {"tesson", 0 },
+            {"jump", 1 },
         };
     }
 
@@ -67,15 +70,23 @@ public class Inventory : MonoBehaviour
         
     }
 
+    public void setJump(int count)
+    {
+        if (inventory["jump"] + count < 0)
+        {
+            return;
+        }
+        inventory["jump"] += count;
+        ui["jump"].transform.Find("counter").GetComponent<TextMeshProUGUI>().text = inventory["jump"].ToString();
+    }
+
     public void SetObject(string obj, int count)
     {
         if (inventory[obj] + count < 0)
         {
             return;
         }
-        Debug.Log("after " + inventory[obj]);
         inventory[obj] += count;
-        Debug.Log("before " + inventory[obj]);
         ui[obj].transform.Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text = obj + " - " + inventory[obj];
     }
 

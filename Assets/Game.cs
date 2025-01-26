@@ -3,6 +3,10 @@ using UnityEngine;
 public class Game : MonoBehaviour
 {
     public MoveSet player;
+    public ParticleSystem exp1;
+    public ParticleSystem exp2;
+    public ParticleSystem exp3;
+    public ParticleSystem exp4;
     public Mixer mixer;
     public Transform camera;
     public Camera view;
@@ -37,7 +41,12 @@ public class Game : MonoBehaviour
         player.isMoving = true;
         follow.isFollow = true;
         gen.canSelectable = false;
+        exp1.Play();
+        exp2.Play();
+        exp3.Play();
+        exp4.Play();
         GetComponent<UIGestion>().closeMixer();
+        GetComponent<UIGestion>().showRun();
     }
 
     public void ModeView()

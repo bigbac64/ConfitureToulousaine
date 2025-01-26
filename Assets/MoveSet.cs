@@ -53,6 +53,7 @@ public class MoveSet : MonoBehaviour
         this.func.AddSatck(func);
     }
 
+
     // Update is called once per frame
     void Update()
     {
@@ -67,8 +68,11 @@ public class MoveSet : MonoBehaviour
             transform.position = pos;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && isMoving)
+        if (Input.GetKeyDown(KeyCode.Space) && isMoving && inventory.inventory["jump"] > 0)
+        {
+            inventory.setJump(-1);
             Jump();
+        }
 
 
     }
@@ -99,6 +103,7 @@ public class MoveSet : MonoBehaviour
         {
             Dictionary<string, int> getr = recept.recolte(transform.position.x);
             ui.closeMixer();
+            ui.closeRun();
             ui.showResume();
             int i = 1;
             foreach (string key in getr.Keys)
@@ -139,4 +144,7 @@ public class MoveSet : MonoBehaviour
 
         }
     }
+
+
+    
 }
