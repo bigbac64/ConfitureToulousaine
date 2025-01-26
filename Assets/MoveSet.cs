@@ -1,3 +1,5 @@
+using FMODUnity;
+using FMOD.Studio;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -29,10 +31,14 @@ public class MoveSet : MonoBehaviour
 
     public bool isMoving = false;
 
+    public EventReference fmodEvent;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
+
         lineRenderer = gameObject.GetComponent<LineRenderer>();
         lineRenderer.startWidth = 0.051f;
         lineRenderer.endWidth = 0.051f;
@@ -95,6 +101,7 @@ public class MoveSet : MonoBehaviour
     {
         if (isMoving)
         {
+            FMODUnity.RuntimeManager.PlayOneShot(fmodEvent);
             func.AddSatck(new Jump(transform.position.x + 2, forceJump, smoothJump));
         }
     }
@@ -128,6 +135,7 @@ public class MoveSet : MonoBehaviour
         transform.position = new Vector3(func.startX, func.startY, 0);
         isMoving = false;
         forward = 0f;
+        ui.showRun();
     }
 
     private void DrawLine()

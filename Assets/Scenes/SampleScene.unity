@@ -252,7 +252,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: pilier - 0
+  m_text: pilier - 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1606,7 +1606,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: canette - 0
+  m_text: canette - 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2145,7 +2145,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: slime - 0
+  m_text: slime - 10
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7116,8 +7116,28 @@ PrefabInstance:
       value: 6.53
       objectReference: {fileID: 0}
     - target: {fileID: 3335214327169568875, guid: 127c3ff23a794bd4cb71d8e5c5e8823c, type: 3}
+      propertyPath: fmodEvent.Path
+      value: event:/Bob_jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 3335214327169568875, guid: 127c3ff23a794bd4cb71d8e5c5e8823c, type: 3}
       propertyPath: forceInstability
       value: 1.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3335214327169568875, guid: 127c3ff23a794bd4cb71d8e5c5e8823c, type: 3}
+      propertyPath: fmodEvent.Guid.Data1
+      value: 840333432
+      objectReference: {fileID: 0}
+    - target: {fileID: 3335214327169568875, guid: 127c3ff23a794bd4cb71d8e5c5e8823c, type: 3}
+      propertyPath: fmodEvent.Guid.Data2
+      value: 1165220385
+      objectReference: {fileID: 0}
+    - target: {fileID: 3335214327169568875, guid: 127c3ff23a794bd4cb71d8e5c5e8823c, type: 3}
+      propertyPath: fmodEvent.Guid.Data3
+      value: -1322644301
+      objectReference: {fileID: 0}
+    - target: {fileID: 3335214327169568875, guid: 127c3ff23a794bd4cb71d8e5c5e8823c, type: 3}
+      propertyPath: fmodEvent.Guid.Data4
+      value: -1288033359
       objectReference: {fileID: 0}
     - target: {fileID: 3335214327169568875, guid: 127c3ff23a794bd4cb71d8e5c5e8823c, type: 3}
       propertyPath: frequencyInstability

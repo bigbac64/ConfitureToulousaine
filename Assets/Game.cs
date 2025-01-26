@@ -94,6 +94,8 @@ public class Game : MonoBehaviour
     {
         GetComponent<UIGestion>().showMixer();
         GetComponent<UIGestion>().closeResume();
+        if (GetComponent<Inventory>().inventory["jump"] == 0)
+            GetComponent<Inventory>().setJump(1);
         gen.canSelectable = true;
         player.ResetPlay();
         functions.ResetStack();

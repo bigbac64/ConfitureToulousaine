@@ -54,10 +54,10 @@ public class Inventory : MonoBehaviour
         };
 
         inventory = new Dictionary<string, int>{
-            {"canette", 20 },
-            {"pilier", 20 },
-            {"fleur", 20 },
-            {"mousse", 20 },
+            {"canette", 1 },
+            {"pilier", 1 },
+            {"fleur", 0 },
+            {"mousse", 0 },
             {"slime", 10 },
             {"tesson", 0 },
             {"jump", 1 },
